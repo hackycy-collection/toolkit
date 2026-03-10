@@ -13,7 +13,7 @@ catalogs:
     lint-staged: ^16.2.6
     publint: ^0.3.17
     simple-git-hooks: ^2.13.1
-    tsdown: ^0.16.0
+    tsdown: ^0.21.1
     tsx: ^4.20.6
     turbo: ^2.8.15
     typescript: ^5.9.3
