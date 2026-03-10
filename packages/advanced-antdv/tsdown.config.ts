@@ -7,4 +7,7 @@ export default defineConfig({
   dts: true,
   exports: true,
   publint: true,
+  css: {
+    fileName: 'advanced-antdv.css',
+  },
 })

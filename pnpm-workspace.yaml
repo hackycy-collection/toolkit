@@ -8,10 +8,12 @@ catalogMode: prefer
 catalogs:
   cli:
     '@antfu/eslint-config': ^6.2.0
+    '@tsdown/css': ^0.21.1
     bumpp: ^10.3.1
     eslint: ^9.39.1
     lint-staged: ^16.2.6
     publint: ^0.3.17
+    sass-embedded: ^1.97.3
     simple-git-hooks: ^2.13.1
     tsdown: ^0.21.1
     tsx: ^4.20.6
@@ -37,3 +39,5 @@ onlyBuiltDependencies:
   - simple-git-hooks
 shellEmulator: true
 trustPolicy: no-downgrade
+trustPolicyExclude:
+  - chokidar@4.0.3

@@ -14,6 +14,7 @@
   "keywords": [],
   "sideEffects": false,
   "exports": {
+    "./financial": "./dist/financial/index.mjs",
     "./request": "./dist/request/index.mjs",
     "./storage": "./dist/storage/index.mjs",
     "./package.json": "./package.json"
@@ -32,13 +33,8 @@
     "typecheck": "tsc",
     "prepare": "simple-git-hooks"
   },
-  "peerDependencies": {
-    "axios": "^1"
-  },
   "dependencies": {
-    "@hackycy-toolkit/shared": "workspace:*"
-  },
-  "devDependencies": {
+    "@hackycy-toolkit/shared": "workspace:*",
     "axios": "catalog:lib"
   }
 }

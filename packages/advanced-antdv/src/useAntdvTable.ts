@@ -24,6 +24,8 @@ import {
   watchEffect,
 } from 'vue'
 
+import './styles/use-antdv-table.scss'
+
 export interface FetchParams {
   page?: number
   [key: string]: any
@@ -43,9 +45,8 @@ export interface FetchSetting {
 export const DEFAULT_PAGE_SIZE = 10
 export const DEFAULT_PAGE_SIZE_OPTIONS = ['10', '20', '50', '100']
 
-/**
- * 默认的 fetchSetting 配置，适用于大多数后端接口，如有需要可通过 ExtendTableProps.fetchSetting 进行覆盖
- */
+export const GLOBAL_VARIABLE_FETCH_SETTING_KEY = '__USE_ANTDV_TABLE_FETCH_SETTING__'
+
 export const DEFAULT_FETCH_SETTING: FetchSetting = {
   // 传给后台的当前页字段
   pageField: 'pageNo',
@@ -85,7 +86,8 @@ export interface ExtendTableProps {
   afterFetch?: (data: any) => any | Promise<any>
 
   /**
-   * 数据请求相关配置项，默认为 DEFAULT_FETCH_SETTING 定义的配置
+   * 默认的 fetchSetting 配置，适用于大多数后端接口
+   * 如有需要可通过 ExtendTableProps.fetchSetting 或者 全局变量 __USE_ANTDV_TABLE_FETCH_SETTING__ 进行覆盖
    */
   fetchSetting?: FetchSetting
 
@@ -486,6 +488,7 @@ export function useAntdvTable<T = any>(
     const { pageField, sizeField, listField, totalField } = Object.assign(
       {},
       DEFAULT_FETCH_SETTING,
+      (window as any)[GLOBAL_VARIABLE_FETCH_SETTING_KEY] || {},
       fetchSetting,
     )
 

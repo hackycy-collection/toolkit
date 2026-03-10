@@ -26,11 +26,13 @@
   },
   "devDependencies": {
     "@antfu/eslint-config": "catalog:cli",
+    "@tsdown/css": "catalog:cli",
     "@types/node": "catalog:types",
     "bumpp": "catalog:cli",
     "eslint": "catalog:cli",
     "lint-staged": "catalog:cli",
     "publint": "catalog:cli",
+    "sass-embedded": "catalog:cli",
     "simple-git-hooks": "catalog:cli",
     "tsdown": "catalog:cli",
     "tsx": "catalog:cli",
