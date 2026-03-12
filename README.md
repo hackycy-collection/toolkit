@@ -15,7 +15,7 @@ toolkit
 
 [MIT](./LICENSE) License © [hackycy](https://github.com/hackycy)
 
-## 致谢
+## Thanks
 
 This project also partially contains code derived or copied from the following projects:
 

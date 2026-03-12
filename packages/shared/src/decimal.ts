@@ -66,9 +66,9 @@ function iteratorOperation(
 /**
  * 高精度乘法
  */
-export function times(...nums: number[]) {
+export function precisionMultiply(...nums: number[]) {
   if (nums.length > 2) {
-    return iteratorOperation(nums, times)
+    return iteratorOperation(nums, precisionMultiply)
   }
 
   const [num1, num2] = nums
@@ -85,37 +85,37 @@ export function times(...nums: number[]) {
 /**
  * 高精度加法
  */
-export function plus(...nums: number[]) {
+export function precisionAdd(...nums: number[]) {
   if (nums.length > 2) {
-    return iteratorOperation(nums, plus)
+    return iteratorOperation(nums, precisionAdd)
   }
 
   const [num1, num2] = nums
   // 取最大的小数位
   const baseNum = 10 ** Math.max(digitLength(num1!), digitLength(num2!))
   // 把小数都转为整数然后再计算
-  return (times(num1!, baseNum) + times(num2!, baseNum)) / baseNum
+  return (precisionMultiply(num1!, baseNum) + precisionMultiply(num2!, baseNum)) / baseNum
 }
 
 /**
  * 高精度减法
  */
-export function minus(...nums: number[]) {
+export function precisionSubtract(...nums: number[]) {
   if (nums.length > 2) {
-    return iteratorOperation(nums, minus)
+    return iteratorOperation(nums, precisionSubtract)
   }
 
   const [num1, num2] = nums
   const baseNum = 10 ** Math.max(digitLength(num1!), digitLength(num2!))
-  return (times(num1!, baseNum) - times(num2!, baseNum)) / baseNum
+  return (precisionMultiply(num1!, baseNum) - precisionMultiply(num2!, baseNum)) / baseNum
 }
 
 /**
  * 高精度除法
  */
-export function divide(...nums: number[]) {
+export function precisionDivide(...nums: number[]) {
   if (nums.length > 2) {
-    return iteratorOperation(nums, divide)
+    return iteratorOperation(nums, precisionDivide)
   }
 
   const [num1, num2] = nums
@@ -124,7 +124,7 @@ export function divide(...nums: number[]) {
   checkBoundary(num1Changed)
   checkBoundary(num2Changed)
   // 重要，这里必须用strip进行修正
-  return times(
+  return precisionMultiply(
     num1Changed / num2Changed,
     strip(10 ** (digitLength(num2!) - digitLength(num1!))),
   )
@@ -133,11 +133,11 @@ export function divide(...nums: number[]) {
 /**
  * 四舍五入
  */
-export function round(num: number, ratio: number = 2) {
+export function roundToPrecision(num: number, ratio: number = 2) {
   const base = 10 ** ratio
-  let result = divide(Math.round(Math.abs(times(num, base))), base)
+  let result = precisionDivide(Math.round(Math.abs(precisionMultiply(num, base))), base)
   if (num < 0 && result !== 0) {
-    result = times(result, -1)
+    result = precisionMultiply(result, -1)
   }
   // 位数不足则补0
   return result

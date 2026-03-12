@@ -16,7 +16,6 @@
   "exports": {
     ".": "./dist/index.mjs",
     "./cache": "./dist/cache/index.mjs",
-    "./financial": "./dist/financial/index.mjs",
     "./request": "./dist/request/index.mjs",
     "./package.json": "./package.json"
   },

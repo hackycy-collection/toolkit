@@ -35,7 +35,8 @@
   },
   "dependencies": {
     "@ctrl/tinycolor": "catalog:lib",
-    "es-toolkit": "catalog:lib"
+    "es-toolkit": "catalog:lib",
+    "theme-colors": "catalog:lib"
   },
   "devDependencies": {
     "@types/lodash-es": "catalog:types"

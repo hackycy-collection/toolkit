@@ -5,7 +5,6 @@ export default defineConfig({
     'src/index.ts',
     'src/cache/index.ts',
     'src/request/index.ts',
-    'src/financial/index.ts',
   ],
   dts: true,
   exports: true,
