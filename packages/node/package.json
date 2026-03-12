@@ -1,8 +1,8 @@
 {
-  "name": "@hackycy-toolkit/advanced-antdv",
+  "name": "@hackycy-toolkit/node",
   "type": "module",
   "version": "0.0.0",
-  "description": "@hackycy-toolkit/advanced-antdv",
+  "description": "@hackycy-toolkit/node",
   "author": "hackycy <hackycy@outlook.com>",
   "license": "MIT",
   "homepage": "https://github.com/hackycy-collection/toolkit#readme",
@@ -15,8 +15,7 @@
   "sideEffects": false,
   "exports": {
     ".": "./dist/index.mjs",
-    "./package.json": "./package.json",
-    "./advanced-antdv.css": "./dist/advanced-antdv.css"
+    "./package.json": "./package.json"
   },
   "types": "./dist/index.d.mts",
   "files": [
@@ -26,23 +25,11 @@
     "build": "tsdown",
     "dev": "tsdown --watch",
     "lint": "eslint",
-    "prepublishOnly": "nr build",
+    "prepublishOnly": "npm run build",
     "release": "bumpp",
     "start": "tsx src/index.ts",
     "test": "vitest",
     "typecheck": "tsc",
     "prepare": "simple-git-hooks"
-  },
-  "peerDependencies": {
-    "ant-design-vue": "^4",
-    "vue": "^3"
-  },
-  "dependencies": {
-    "@hackycy-toolkit/shared": "workspace:*",
-    "@vueuse/core": "catalog:lib"
-  },
-  "devDependencies": {
-    "ant-design-vue": "catalog:lib",
-    "vue": "catalog:lib"
   }
 }

@@ -1,1 +1,1 @@
-export { type TableAction, useAntdvTable } from './useAntdvTable'
+export { type TableAction, useTable } from './useTable'

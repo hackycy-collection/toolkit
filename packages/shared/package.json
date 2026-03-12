@@ -2,7 +2,7 @@
   "name": "@hackycy-toolkit/shared",
   "type": "module",
   "version": "0.0.0",
-  "description": "advanced components for ant-design-vue",
+  "description": "@hackycy-toolkit/shared",
   "author": "hackycy <hackycy@outlook.com>",
   "license": "MIT",
   "homepage": "https://github.com/hackycy-collection/toolkit#readme",
@@ -15,8 +15,7 @@
   "sideEffects": false,
   "exports": {
     ".": "./dist/index.mjs",
-    "./hooks": "./dist/hooks.mjs",
-    "./lodash": "./dist/lodash.mjs",
+    "./es-toolkit": "./dist/es-toolkit.mjs",
     "./package.json": "./package.json"
   },
   "types": "./dist/index.d.mts",
@@ -35,8 +34,8 @@
     "prepare": "simple-git-hooks"
   },
   "dependencies": {
-    "@vueuse/core": "catalog:lib",
-    "lodash-es": "catalog:lib"
+    "@ctrl/tinycolor": "catalog:lib",
+    "es-toolkit": "catalog:lib"
   },
   "devDependencies": {
     "@types/lodash-es": "catalog:types"

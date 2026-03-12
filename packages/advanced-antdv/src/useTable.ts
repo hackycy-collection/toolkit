@@ -6,9 +6,9 @@ import type {
 
 import type { ComputedRef } from 'vue'
 
-import { useEventListener } from '@hackycy-toolkit/shared/hooks'
+import { cloneDeep, get, isFunction, merge } from '@hackycy-toolkit/shared/es-toolkit'
 
-import { cloneDeep, get, isFunction, merge } from '@hackycy-toolkit/shared/lodash'
+import { useEventListener } from '@vueuse/core'
 
 import { Table } from 'ant-design-vue'
 import {
@@ -128,7 +128,7 @@ export interface ExtendTableProps {
 /**
  * 便捷使用 Ant Design Vue 的 Table 组件，提供默认配置和行选择功能。
  */
-export function useAntdvTable<T = any>(
+export function useTable<T = any>(
   tableProps?: ExtendTableProps & TableProps<T>,
 ) {
   const dataSourceRef = ref<T[]>(tableProps?.dataSource ?? [])
