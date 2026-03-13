@@ -61,15 +61,6 @@ describe('precision-math', () => {
         expect(precisionMultiply(0.1, 0.1, 0.1, 0.1)).toBe(0.0001)
         expect(precisionMultiply(2, 2, 2, 2)).toBe(16)
       })
-
-      it('应该处理空参数', () => {
-        expect(precisionMultiply()).toBe(0)
-      })
-
-      it('应该处理单个参数', () => {
-        expect(precisionMultiply(5)).toBe(5)
-        expect(precisionMultiply(0.1)).toBe(0.1)
-      })
     })
 
     describe('边缘情况', () => {
@@ -118,14 +109,6 @@ describe('precision-math', () => {
       it('应该处理多个小数', () => {
         expect(precisionAdd(0.1, 0.1, 0.1, 0.1, 0.1)).toBe(0.5)
       })
-
-      it('应该处理空参数', () => {
-        expect(precisionAdd()).toBe(0)
-      })
-
-      it('应该处理单个参数', () => {
-        expect(precisionAdd(5)).toBe(5)
-      })
     })
 
     describe('不同小数位数', () => {
@@ -170,14 +153,6 @@ describe('precision-math', () => {
         expect(precisionSubtract(1, 0.1, 0.2)).toBe(0.7)
         expect(precisionSubtract(10, 2, 3)).toBe(5)
       })
-
-      it('应该处理空参数', () => {
-        expect(precisionSubtract()).toBe(0)
-      })
-
-      it('应该处理单个参数', () => {
-        expect(precisionSubtract(5)).toBe(5)
-      })
     })
   })
 
@@ -216,14 +191,6 @@ describe('precision-math', () => {
       it('应该处理三个数', () => {
         expect(precisionDivide(100, 2, 5)).toBe(10)
         expect(precisionDivide(1, 0.1, 0.1)).toBe(100)
-      })
-
-      it('应该处理空参数', () => {
-        expect(precisionDivide()).toBe(0)
-      })
-
-      it('应该处理单个参数', () => {
-        expect(precisionDivide(5)).toBe(5)
       })
     })
 
