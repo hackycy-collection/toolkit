@@ -58,6 +58,9 @@ catalogs:
     axios:
       specifier: ^1.13.6
       version: 1.13.6
+    big.js:
+      specifier: ^7.0.1
+      version: 7.0.1
     es-toolkit:
       specifier: ^1.45.1
       version: 1.45.1
@@ -180,6 +183,9 @@ importers:
       '@ctrl/tinycolor':
         specifier: catalog:lib
         version: 4.2.0
+      big.js:
+        specifier: catalog:lib
+        version: 7.0.1
       es-toolkit:
         specifier: catalog:lib
         version: 1.45.1
@@ -1403,6 +1409,9 @@ packages:
   baseline-browser-mapping@2.8.25:
     resolution: {integrity: sha512-2NovHVesVF5TXefsGX1yzx1xgr7+m9JQenvz6FQY3qd+YXkKkYiv+vTCc7OriP9mcDZpTC5mAOYN4ocd29+erA==}
     hasBin: true
+
+  big.js@7.0.1:
+    resolution: {integrity: sha512-iFgV784tD8kq4ccF1xtNMZnXeZzVuXWWM+ERFzKQjv+A5G9HC8CY3DuV45vgzFFcW+u2tIvmF95+AzWgs6BjCg==}
 
   birpc@4.0.0:
     resolution: {integrity: sha512-LShSxJP0KTmd101b6DRyGBj57LZxSDYWKitQNW/mi8GRMvZb078Uf9+pveax1DrVL89vm7mWe+TovdI/UDOuPw==}
@@ -4464,6 +4473,8 @@ snapshots:
   balanced-match@1.0.2: {}
 
   baseline-browser-mapping@2.8.25: {}
+
+  big.js@7.0.1: {}
 
   birpc@4.0.0: {}
 
