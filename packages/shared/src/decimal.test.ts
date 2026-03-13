@@ -1,11 +1,5 @@
-/**
- * Precision Math Library - Vitest Test Suite
- * 高精度数学运算库测试集
- */
-
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import {
-  enableBoundaryChecking,
   precisionAdd,
   precisionDivide,
   precisionMultiply,
@@ -16,7 +10,6 @@ import {
 describe('precision-math', () => {
   // 每个测试前重置状态
   beforeEach(() => {
-    enableBoundaryChecking(true)
     vi.restoreAllMocks()
   })
 

@@ -1,4 +1,4 @@
-let _boundaryCheckingState = true // 是否进行越界检查的全局开关
+let _boundaryCheckingState = false // 是否进行越界检查的全局开关
 
 /**
  * 把错误的数据转正
