@@ -30,8 +30,7 @@
     "release": "bumpp",
     "start": "tsx src/index.ts",
     "test": "vitest",
-    "typecheck": "tsc",
-    "prepare": "simple-git-hooks"
+    "typecheck": "tsc"
   },
   "peerDependencies": {
     "ant-design-vue": "^4",
