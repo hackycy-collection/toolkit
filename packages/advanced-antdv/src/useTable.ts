@@ -4,7 +4,7 @@ import type {
   TableProps,
 } from 'ant-design-vue'
 
-import type { ComputedRef } from 'vue'
+import type { ComputedRef, Ref } from 'vue'
 
 import { cloneDeep, get, isFunction, merge } from '@hackycy-toolkit/shared/es-toolkit'
 
@@ -572,10 +572,10 @@ export function useTable<T = any>(
     ComputedRef<TableProps<T>>,
     TableAction,
     {
-      loading: typeof getLoading
-      rowSelection: typeof defaultRowSelection
-      selectedRowKeys: typeof selectedRowKeys
-      selectedRows: typeof selectedRows
+      loading: ComputedRef<boolean>
+      rowSelection: Record<string, any>
+      selectedRowKeys: Ref<(string | number)[]>
+      selectedRows: Ref<T[]>
     },
     typeof UseAntdvTable,
   ]
