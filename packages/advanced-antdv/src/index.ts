@@ -1,2 +1,3 @@
 export * from './config'
-export { type TableAction, useTable } from './useTable'
+export * from './types'
+export { DEFAULT_FETCH_SETTING, type TableAction, useTable } from './useTable'

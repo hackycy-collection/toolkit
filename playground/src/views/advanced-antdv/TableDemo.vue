@@ -77,16 +77,16 @@ function handleRestoreData() {
       <div class="demo-card-label">Controls</div>
       <div class="flex items-center justify-between flex-wrap gap-3">
         <div class="flex items-center gap-2 flex-wrap">
-          <Button size="small" :loading="reloading" @click="handleReload">
+          <Button :loading="reloading" @click="handleReload">
             Reload (shuffle)
           </Button>
-          <Button size="small" @click="handleClearData">
+          <Button @click="handleClearData">
             Clear Data
           </Button>
-          <Button size="small" @click="handleRestoreData">
+          <Button @click="handleRestoreData">
             Restore
           </Button>
-          <Button size="small" :disabled="state.selectedRowKeys.value.length === 0" @click="handleClearSelection">
+          <Button :disabled="state.selectedRowKeys.value.length === 0" @click="handleClearSelection">
             Clear Selection
           </Button>
         </div>

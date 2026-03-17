@@ -1,25 +1,16 @@
-import { isObject } from '@hackycy-toolkit/shared/es-toolkit'
+import type { AdvancedAntdvGlobalConfig } from './types'
 
-interface TableConfig {
-  fetchSetting: unknown
-}
+import { merge } from '@hackycy-toolkit/shared/es-toolkit'
 
-export interface AdvancedAntdvGlobalConfig {
-  table: TableConfig
-}
-
-const globalConfig: Partial<AdvancedAntdvGlobalConfig> = {}
-
-function setGlobalConfig(config: Partial<AdvancedAntdvGlobalConfig>) {
-  if (!config || !isObject(config)) {
-    return
+function defineGlobalConfig<T extends object>() {
+  const config = {} as T
+  return {
+    getGlobalConfig: (): Readonly<T> => config,
+    setGlobalConfig: (cfg: T) => { merge(config, cfg) },
   }
-
-  Object.assign(globalConfig, config)
 }
 
-function getGlobalConfig() {
-  return globalConfig
-}
+export const { getGlobalConfig, setGlobalConfig }
+  = defineGlobalConfig<AdvancedAntdvGlobalConfig>()
 
-export { getGlobalConfig, setGlobalConfig }
+export type { AdvancedAntdvGlobalConfig }

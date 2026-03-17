@@ -64,4 +64,4 @@ node            (standalone Node.js utilities, no workspace deps)
 
 `playground/` is a Vue 3 + Vite + Tailwind CSS v4 demo app for testing library features interactively. **Run `pnpm build` before `pnpm play`** — the playground consumes the packages' compiled `dist/` via workspace symlinks.
 
-Structure: `src/router/index.ts` defines both routes and `navConfig` (the sidebar nav data). `src/layouts/DefaultLayout.vue` renders the sidebar + content shell. Demo pages live in `src/views/{category}/`. The dark theme and ant-design-vue overrides are in `src/style.css`.
+Structure: `src/router/index.ts` defines both routes and `navConfig` (the sidebar nav data). `src/layouts/DefaultLayout.vue` renders the sidebar + content shell. Demo pages live in `src/views/{category}/`. The app theme and ant-design-vue overrides are in `src/style.css`.

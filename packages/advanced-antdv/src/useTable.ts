@@ -5,6 +5,7 @@ import type {
 } from 'ant-design-vue'
 
 import type { ComputedRef, Ref } from 'vue'
+import type { FetchParams, FetchSetting } from './types'
 
 import { cloneDeep, get, isFunction, merge } from '@hackycy-toolkit/shared/es-toolkit'
 
@@ -24,28 +25,14 @@ import {
   watchEffect,
 } from 'vue'
 
+import { getGlobalConfig } from './config'
+
 import './styles/use-antdv-table.scss'
 
-export interface FetchParams {
-  page?: number
-  [key: string]: any
-}
-
-export interface FetchSetting {
-  // 请求接口当前页数
-  pageField: string
-  // 每页显示多少条
-  sizeField: string
-  // 请求结果列表字段  支持 a.b.c
-  listField: string
-  // 请求结果总数字段  支持 a.b.c
-  totalField: string
-}
+export type { FetchParams, FetchSetting }
 
 export const DEFAULT_PAGE_SIZE = 10
 export const DEFAULT_PAGE_SIZE_OPTIONS = ['10', '20', '50', '100']
-
-export const GLOBAL_VARIABLE_FETCH_SETTING_KEY = '__USE_ANTDV_TABLE_FETCH_SETTING__'
 
 export const DEFAULT_FETCH_SETTING: FetchSetting = {
   // 传给后台的当前页字段
@@ -194,15 +181,20 @@ export function useTable<T = any>(
       return false
     }
 
+    const tableGlobalConfig = getGlobalConfig().table
+    const pageSize = tableGlobalConfig?.pageSize ?? DEFAULT_PAGE_SIZE
+    const pageSizeOptions = tableGlobalConfig?.pageSizeOptions ?? DEFAULT_PAGE_SIZE_OPTIONS
+    const showTotal = tableGlobalConfig?.showTotal ?? (total => `共 ${total} 条`)
+
     return {
       current: 1,
-      pageSize: DEFAULT_PAGE_SIZE,
+      pageSize,
       size: 'small',
-      defaultPageSize: DEFAULT_PAGE_SIZE,
-      pageSizeOptions: DEFAULT_PAGE_SIZE_OPTIONS,
+      defaultPageSize: pageSize,
+      pageSizeOptions,
       showSizeChanger: true,
       responsive: true,
-      showTotal: total => `共 ${total} 条`,
+      showTotal,
       ...pagination,
       ...unref(innerPaginationPropsRef),
     }
@@ -251,8 +243,9 @@ export function useTable<T = any>(
             return index + 1
           }
           else {
-            const { current = 1, pageSize = DEFAULT_PAGE_SIZE } = pagination
-            return (Math.max(current, 1) - 1) * pageSize + index + 1
+            const pageSize = getGlobalConfig().table?.pageSize ?? DEFAULT_PAGE_SIZE
+            const { current = 1, pageSize: paginationPageSize = pageSize } = pagination
+            return (Math.max(current, 1) - 1) * paginationPageSize + index + 1
           }
         },
         ...(isFixedLeft ? { fixed: 'left' } : {}),
@@ -485,16 +478,21 @@ export function useTable<T = any>(
       return
     }
 
-    const { pageField, sizeField, listField, totalField } = { ...DEFAULT_FETCH_SETTING, ...(window as any)[GLOBAL_VARIABLE_FETCH_SETTING_KEY] || {}, ...fetchSetting }
+    const { pageField, sizeField, listField, totalField } = {
+      ...DEFAULT_FETCH_SETTING,
+      ...getGlobalConfig().table?.fetchSetting,
+      ...fetchSetting,
+    }
 
     try {
       const pagination = unref(getPaginationProps)
       const pageParams: Record<string, any> = {}
 
       if (typeof pagination !== 'boolean' && pagination) {
-        const { current = 1, pageSize = DEFAULT_PAGE_SIZE } = pagination
+        const pageSize = getGlobalConfig().table?.pageSize ?? DEFAULT_PAGE_SIZE
+        const { current = 1, pageSize: paginationPageSize = pageSize } = pagination
         pageParams[pageField] = (opt && opt.page) || current
-        pageParams[sizeField] = pageSize
+        pageParams[sizeField] = paginationPageSize
       }
 
       tableAction.setLoading(true)
