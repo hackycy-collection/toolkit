@@ -16,5 +16,6 @@ export {
 export * from './resources'
 export * from './stack'
 export * from './tree'
+export * from './url'
 export * from './util'
 export * from './window'

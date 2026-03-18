@@ -40,7 +40,6 @@
     "theme-colors": "catalog:lib"
   },
   "devDependencies": {
-    "@types/big.js": "catalog:types",
-    "@types/lodash-es": "catalog:types"
+    "@types/big.js": "catalog:types"
   }
 }
