@@ -20,3 +20,4 @@ toolkit
 This project also partially contains code derived or copied from the following projects:
 
 - [Vben](https://github.com/vbenjs/vue-vben-admin)
+- [Vue-Router](https://github.com/vuejs/router)
