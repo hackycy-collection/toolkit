@@ -1,1 +1,1 @@
-export * from './use-content-height/useContentHeight'
+export * from './useContentHeight'
