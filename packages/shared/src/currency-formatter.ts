@@ -62,7 +62,9 @@ export function formatCurrency(
   return `${currencySymbol}${result}${currencyUnit}`
 }
 
-/** 格式化零值 */
+/**
+ * 格式化零值
+ */
 function formatZero(decimalPlaces: number, useGrouping: boolean): string {
   const zero = (0).toLocaleString('zh-CN', {
     minimumFractionDigits: decimalPlaces,
@@ -72,11 +74,16 @@ function formatZero(decimalPlaces: number, useGrouping: boolean): string {
   return zero
 }
 
-// 预设快捷函数
+/**
+ * 预设快捷函数 CNY
+ */
 export function formatCNY(amount: string | number | null | undefined, options?: Omit<CurrencyFormatOptions, 'currencySymbol' | 'currencyUnit'>) {
   return formatCurrency(amount, { ...options, currencySymbol: '¥', currencyUnit: '' })
 }
 
+/**
+ * 预设快捷函数 USD
+ */
 export function formatUSD(amount: string | number | null | undefined, options?: Omit<CurrencyFormatOptions, 'currencySymbol' | 'currencyUnit'>) {
   return formatCurrency(amount, { ...options, currencySymbol: '$', currencyUnit: '' })
 }
