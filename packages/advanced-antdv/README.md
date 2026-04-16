@@ -19,5 +19,5 @@ advanced-antdv
 [npm-downloads-href]: https://npmjs.com/package/@hackycy-kit/advanced-antdv
 [bundle-src]: https://img.shields.io/bundlephobia/minzip/@hackycy-kit/advanced-antdv?style=flat&colorA=080f12&colorB=1fa669&label=minzip
 [bundle-href]: https://bundlephobia.com/result?p=@hackycy-kit/advanced-antdv
-[license-src]: https://img.shields.io/github/license/hackycy-collection/kit.svg?style=flat&colorA=080f12&colorB=1fa669
-[license-href]: https://github.com/hackycy-collection/kit/blob/main/LICENSE
+[license-src]: https://img.shields.io/github/license/hackycy/kit.svg?style=flat&colorA=080f12&colorB=1fa669
+[license-href]: https://github.com/hackycy/kit/blob/main/LICENSE

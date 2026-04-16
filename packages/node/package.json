@@ -5,12 +5,12 @@
   "description": "@hackycy-kit/node",
   "author": "hackycy <hackycy@outlook.com>",
   "license": "MIT",
-  "homepage": "https://github.com/hackycy-collection/kit#readme",
+  "homepage": "https://github.com/hackycy/kit#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hackycy-collection/kit.git"
+    "url": "git+https://github.com/hackycy/kit.git"
   },
-  "bugs": "https://github.com/hackycy-collection/kit/issues",
+  "bugs": "https://github.com/hackycy/kit/issues",
   "keywords": [],
   "sideEffects": false,
   "exports": {
